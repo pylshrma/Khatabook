@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+</head>
+<body>
+   <div class="main h-screen w-screen p-6">
+    <nav class="flex items-center justify-between h-[10%] p-10">
+        <h2 class="font-[500] text-[20px]">Khaatabook</h2>
+        <div class="nav-1 mr-[80px] flex items-center justify-center gap-6">
+            <a class="font-[500] text-[15px] mr-2" href="/profile">Home</a>   
+            <a class="text-white text-[16px] font-[500] bg-red-500 p-2 rounded-md ml-2" href="/logout">Logout</a>
+             
+            <div>
+        </div>
+      </nav> 
+     <div class="flex items-center gap-8 ml-10 mt-5 ">
+    <!-- <a class="flex gap-2 bg-blue-500 px-2 py-1 rounded-lg text-white w-28" href=""><i class="ri-git-repository-private-line"></i><h2>Encrypted</h2></a> -->
+    <!-- <i class="ri-eye-off-line bg-gray-300 font-[500] px-3 py-1 rounded-lg text-[15px]"></i> -->
+    <a href="#" id="share-link"><i class="ri-share-line"></i> Share as link </a>
+    <a class="bg-red-500 text-white px-4 py-2 rounded-lg" href="/delete/<%= user._id %>">Delete</a>
+    <a class="bg-yellow-500 text-white px-4 py-2 rounded-lg" href="/edit/<%= user._id %>">Edit</a>
+     </div>
+     <h2 class="mt-10 text-gray-400 text-[15px] font-[500] px-10">Created on <%= user.date.getDate()%>-<%= user.date.getMonth()+1%>-<%= user.date.getFullYear() %></h2>
+     <h1 class="text-black text-[35px] font-[500] mt-3 px-10"><%= user.title %></h1>
+     <h3  class="text-black text-[25px]  mt-3 px-10"><%= user.details %></h3>
+   
+   </div>
+   
+   <script>
+     document.getElementById('share-link').addEventListener('click', function(e) {
+         e.preventDefault();
+         const url = window.location.href;
+         navigator.clipboard.writeText(url).then(function() {
+             alert('Link copied to clipboard');
+         }).catch(function(err) {
+             console.error('Failed to copy: ', err);
+         });
+     });
+   </script>
+</body>
+</html>

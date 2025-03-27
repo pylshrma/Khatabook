@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+    
+    box-sizing: border-box;
+    }
+    html,body {
+    height:100%;
+    width:100%;
+    }
+    body {
+        transition: background-color 0.5s, color 0.5s;
+    }
+    .theme-black {
+        background-color: black;
+     color: white;
+    }
+    .theme-white {
+        background-color: white;
+        color: black;
+    }
+    .icon {
+        cursor: pointer;
+     
+        
+        margin: 5px;
+    
+    }
