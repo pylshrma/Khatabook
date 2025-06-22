@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb+srv://khatabook:khata123@khatabookdb.beppqbg.mongodb.net/khataDB?retryWrites=true&w=majority&appName=KhatabookDB`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+require("dotenv").config();
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 .then(() => {
     console.log("✅ Connected to MongoDB Atlas");
