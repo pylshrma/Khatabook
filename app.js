@@ -98,7 +98,7 @@ app.post("/register", async function (req, res) {
     if (!user) return res.status(500).send("Something went wrong");
     bcrypt.compare(password, user.password, function (err, result) {
       if (result) {
-        let token = jwt.sign({ email: email, userId: user._id }, "shh");
+        let token = jwt.sign({ email: email, userId: user._id }, process.env.JWT_SECRET);
         res.cookie("token", token);
         res.status(200).redirect("/profile");
       } else res.redirect("/");
