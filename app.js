@@ -85,7 +85,7 @@ app.post("/register", async function (req, res) {
         age,
         password: hash,
       });
-      let token = jwt.sign({ email: email, userId: user._id }, "shh");
+      let token = jwt.sign({ email: email, userId: user._id },process.env.JWT_SECRET);
       res.cookie("token", token);
       res.redirect("/login");
     });
@@ -140,7 +140,7 @@ app.post("/update/:id",async function(req,res)
 function isLoggedIn(req, res, next) {
   if (req.cookies.token === "") res.redirect("/login");
   else {
-    jwt.verify(req.cookies.token, "shh", (err, decoded) => {
+    jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         res.redirect("/login");
       } else {
