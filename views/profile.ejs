@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+   <div class="main h-screen w-screen p-6">
+
+    <nav class="flex items-center justify-between h-[10%] p-3">
+        <h2 class="font-[500] text-[20px]">Khaatabook</h2>
+        <div class="nav-1 mr-[80px] flex items-center justify-center gap-6">
+            <a class="font-[500] text-[15px] mr-2" href="/new">Create New Hisaab</a>   
+            <div>
+              <body class="theme-white">
+                <div>
+                    <span id="icon-1" class="icon"><i class="ri-moon-line text-white bg-blue-800 p-3 rounded-[50%] mr-2"></i></span>
+                    <span id="icon-2" class="icon"><i class="ri-sun-line text-white bg-yellow-400 p-3 rounded-[50%] mr-2"></i></span>
+                    <a class="text-white text-[16px] font-[500] bg-red-500 p-2 rounded-md ml-2" href="/logout">Logout</a>
+                </div>
+                
+            </div>     
+        </div>
+      </nav> 
+
+       <form class="flex mb-10 gap-5" action="/profile" method="get">
+        <div class="px-4 py-2 flex items-center gap-4 font-medium text-sm text-zinc-100 bg-zinc-500 rounded-md">Filters <i class="ri-sound-module-fill"></i></div>
+        <div id="bydate" class="px-4 py-2 flex items-center gap-4 font-medium text-sm text-zinc-500 bg-zinc-200 rounded-md cursor-pointer">By Date <i class="ri-calendar-line"></i>  </div>
+        <div class="dates hidden flex gap-5 items-center">
+          <input type="date" name="startDate" class="bg-zinc-200 text-sm px-4 py-2 rounded-md">
+          <input type="date" name="endDate" class="bg-zinc-200 text-sm px-4 py-2 rounded-md">
+        </div>
+        <select name="byDate" class="outline-none" id="">
+          <option value="-1">Newest First</option>
+          <option value="1">Oldest First</option>
+        </select>
+  <input class="px-6 py-2 bg-blue-500 text-white rounded-md" type="submit" value="Filter">
+       </form>
+
+      <div class="hisabs flex flex-wrap  items-start justify-start gap-5">
+        
+    <% users.khatas.forEach(function(val)
+    {%>
+      <div class=" hisab w-[30vw] bg-gray-100 h-40 mt-10 rounded-lg overflow-hidden p-2">
+        <div class="nav-1 h-14 flex items-center justify-center gap-4 ">
+     <% if(val.isEncoded==="on")
+     {%>
+      <div>
+        <a class="flex gap-2 bg-blue-500 px-2 py-1 rounded-lg text-white" href="#"><i class="ri-git-repository-private-line"></i><h2>Encrypted</h2></a>
+      </div>
+    <% 
+  }else
+  {%>
+    <div>
+      <a class="flex gap-2 bg-teal-600 px-2 py-1 rounded-lg text-white" href="#"><i class="ri-check-line"></i><h2>Available</h2></a>
+    </div>
+ <% }
+  %>
+  <% if(val.shareable==="off")
+  {%>
+    <div>
+      <i class="ri-eye-off-line bg-gray-300 font-[500] px-3 py-1 rounded-lg text-[15px]"></i>
+    </div>
+  <%}
+  else
+  {%>
+    <i class="ri-eye-line  bg-gray-300 font-[500] px-3 py-1 rounded-lg text-[15px]"></i>
+<%  } %>
+      <h3 class="text-[13px] text-gray-400 ml-7 font-[500]">Created on <%= val.date.getDate()%>-<%= val.date.getMonth()+1%>-<%= val.date.getFullYear() %></h3>
+        </div>
+        <h4 class="text-gray-700 text-[24px] font-[500] mt-2 "><%= val.title%></h4>
+        <a class="text-[16px] text-gray-400 mt-3 inline-block ml-" href="/view/<%= val._id%>">view hisaab</a>
+      </div>
+   <% }) %>
+
+       </div>
+      </div>
+ <script src="/javascripts/parv.js"></script>
+</body>
+</html>

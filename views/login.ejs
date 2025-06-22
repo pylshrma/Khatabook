@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+   <div class="main h-screen w-screen p-6">
+    <nav class="flex items-center justify-between h-[10%]">
+        <h2 class="font-[500] text-[20px]">Khaatabook</h2>
+        <div class="nav-1 mr-[80px] flex items-center justify-center gap-6">
+            
+            <a class=" font-[500] text-[14px]" href="/">Create New Account</a>
+        </div>
+      </nav> 
+<div class="form  flex items-center justify-center flex-col h-[70%]">
+    <h2 class="text-[25px] mb-7 font-[500]">Login your Account</h2>
+    <form action="/login" method="post">
+        <input required  class="block bg-gray-100 px-4 py-3 rounded-lg outline-none" type="text" required placeholder="Email" name="email">
+        <input required class="block bg-gray-100 px-4 py-3 rounded-lg mt-5" type="password" required placeholder="Password" name="password">
+        <input class="block mt-7 bg-blue-500 text-white px-6 py-2 rounded-md text-[17px] ml-[50px] outline-none" type="submit" value="Log in">
+
+    </form>
+</div>
+   </div>
+</body>
+</html>

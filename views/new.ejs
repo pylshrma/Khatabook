@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaatabook</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="bg-gray-100 p-12 rounded-lg h-full w-full">
+        <h1 class="text-3xl font-bold mb-8 ml-6">Khaatabook</h1>
+        <h2 class="text-2xl mb-6 ml-6 ">Create New Hisaab</h2>
+        <form action="/khata" method="post">
+                <input class="text-black bg-gray-200 w-96 h-10 rounded-md outline-none  mt-1 ml-6 px-2 py-2 " type="text" id="hisaabName" placeholder="Shopping Hisaab, Ghar ka Kharch.." name="title">
+                <br>
+                <textarea placeholder="Daal, Aata, Cheeni" class="text-black bg-gray-200 w-96 h-60 rounded-md outline-none  mt-3 ml-6 px-2 py-2 resize-none" name="details"></textarea>
+                <br>
+                <input name="isEncoded" type="checkbox" id="encrypt" class="mr-2 mt-1 ml-6 px-2 py-2">
+                <label  for="encrypt" class="text-gray-700 ">Encrypt this file</label>   
+                <input  name="shareable" type="checkbox" id="shareable" class=" mr-2 mt-1 ml-16 px-2 py-2">
+                <label name for="shareable" class="text-gray-700">Shareable file?</label>
+                <br>
+                <input type="password" name="passcode" id="passcode" placeholder="Passcode" class="text-black bg-gray-200 w-40 h-10 rounded-md outline-none  mt-3 ml-6 px-2 py-2">
+                <input type="checkbox" id="permissions" class="mr-2 mt-1 ml-9 px-2 py-2" >
+                <label for="permissions" class="text-gray-700">Edit permissions</label>
+                <br>
+             <button type="submit" class="w-40 h-15 bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 mr-2 mt-3 ml-6 px-2 py-2">Create New Hisaab</button>
+        </form>
+    </div>
+</body>
+</html>
