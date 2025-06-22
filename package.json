@@ -8,6 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
@@ -17,4 +18,15 @@
     "mongoose": "^8.16.0"
   },
   "description": ""
+=======
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.1"
+  }
+>>>>>>> cc1ea9a5d95324d3b510c2fa12704ac11c6ddc87
 }
