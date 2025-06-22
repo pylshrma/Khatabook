@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 const cookieparser = require("cookie-parser");
 const path = require("path");
 const userModel = require("./models/user");
@@ -150,4 +150,8 @@ function isLoggedIn(req, res, next) {
     });
   }
 }
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("✅ Server running on port", PORT);
+});
+
